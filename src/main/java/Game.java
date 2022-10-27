@@ -14,7 +14,7 @@ public class Game {
     }
 
     public void removeAllPlayers() {
-        players.clear();
+        this.players.clear();
     }
 
     public Player getPlayer(String playerName) {

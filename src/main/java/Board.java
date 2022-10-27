@@ -72,6 +72,9 @@ public class Board {
         return moveSpaces.toArray(new Space[0]);
     }
 
+    public void setPlayerPosition(Player player, int position) {
+        playersPositions.put(player, spaces.get(position));
+    }
     public void setPlayerStartPosition(Player player) {
         playersPositions.put(player, spaces.get(0));
     }

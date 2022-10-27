@@ -16,9 +16,8 @@ public class AddPlayerTest {
     @Test
     @DisplayName("Test adding players")
     public void testAddPlayers() {
-        Player player = new Player("pippo");
-        game.addPlayer(player);
-        assertTrue(game.getPlayers().contains(player));
+        game.addPlayer("pippo");
+        assertTrue(game.getPlayers().contains(new Player("pippo")));
         assertEquals(1, game.getPlayers().size());
         game.addPlayer("pluto");
         assertNotNull(game.getPlayer("pluto"));
@@ -28,12 +27,13 @@ public class AddPlayerTest {
     @Test
     @DisplayName("Test not adding existing players")
     public void testAddExistingPlayers() {
-//        game.addPlayer("pippo");
-//        assertEquals(1, game.getPlayers().size());
-//        game.addPlayer("pluto");
-//        assertEquals(2, game.getPlayers().size());
-//        game.addPlayer("pluto");
-//        assertEquals(2, game.getPlayers().size());
+        System.out.println(game.getPlayers().size());
+        game.addPlayer("pippo");
+        assertEquals(1, game.getPlayers().size());
+        game.addPlayer("pluto");
+        assertEquals(2, game.getPlayers().size());
+        game.addPlayer("pluto");
+        assertEquals(2, game.getPlayers().size());
     }
 
 }
