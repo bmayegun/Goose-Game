@@ -13,6 +13,10 @@ public class Game {
         this.players.addAll(players);
     }
 
+    public void removeAllPlayers() {
+        players.clear();
+    }
+
     public Player getPlayer(String playerName) {
         return players.stream().filter(p->p.getName().equals(playerName)).findFirst().orElse(null);
     }

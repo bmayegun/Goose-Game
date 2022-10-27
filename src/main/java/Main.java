@@ -17,10 +17,10 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String command = in.nextLine();
 
-        String playerName = null;
+        String playerName;
 
         while (command != null) {
-            int die1 = 0, die2 = 0, i = 0;
+            int die1, die2, i = 0;
             Matcher addPlayerMatcher = addPlayerPattern.matcher(command);
             Matcher moveMatcher = movePattern.matcher(command);
             Matcher moveWithDiceMatcher = moveWithDicePattern.matcher(command);

@@ -1,5 +1,5 @@
 public class Bridge extends Space{
-    private int bridgeDestination = 0;
+    private int bridgeDestination;
 
     public Bridge(int position, int bridgeDestination) {
         super(position, "The Bridge");

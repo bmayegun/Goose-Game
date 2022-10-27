@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MovePlayerTest {
     private final Game game = new Game();
-    ArrayList<Player> players = null;
+    ArrayList<Player> players;
 
     @BeforeEach
     @DisplayName("Add players")

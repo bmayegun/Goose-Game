@@ -21,10 +21,10 @@ public class Board {
     }
 
     private static final List<Space> spaces;
-    private Map<Player, Space> playersPositions = new HashMap<Player, Space>();
+    private final Map<Player, Space> playersPositions = new HashMap<>();
 
     static {
-        ArrayList<Space> path = new ArrayList<Space>(65);
+        ArrayList<Space> path = new ArrayList<>(65);
         for(int i = 0; i< BOARD_LENGTH; i++) {
             switch (i) {
                 case 0:
@@ -54,11 +54,11 @@ public class Board {
 
     public Space[] move(Player player, int die1, int die2) {
         Space currentSpace = playersPositions.get(player);
-        ArrayList<Space> moveSpaces = new ArrayList<Space>();
+        ArrayList<Space> moveSpaces = new ArrayList<>();
         int moveNextSpace;
         if (currentSpace != null && !(currentSpace instanceof LastSpace)) {
             int possibleNextSpace = currentSpace.getPosition() + die1 + die2;
-            Space nextCell = spaces.get(possibleNextSpace > LAST_CELL ? LAST_CELL: possibleNextSpace);
+            Space nextCell = spaces.get(Math.min(possibleNextSpace, LAST_CELL));
             moveSpaces.add(nextCell);
             moveNextSpace = nextCell.moveRolledValue(currentSpace, die1, die2);
             while (moveNextSpace != possibleNextSpace) {
@@ -77,7 +77,7 @@ public class Board {
     }
 
     public void setPlayersStartPosition(List<Player> players) {
-        players.stream().forEach(this::setPlayerStartPosition);
+        players.forEach(this::setPlayerStartPosition);
     }
     public Space getCurrentPlayerPosition(Player player) {
         return playersPositions.get(player);
